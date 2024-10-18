@@ -4,9 +4,9 @@
 
 ### 技术栈概述
 
-- 后端框架：项目采用 Node.js 作为后端开发语言，得益于其非阻塞 I/O 模型，Node.js 在处理高并发请求时表现出色，非常适合构建实时交互系统。
-- Web 框架：Express 作为轻量级的 Node.js Web 应用框架，被用于快速搭建服务器路由和处理 HTTP 请求，简化了 Web 应用的开发流程。
-- AI 模型：核心部分使用了百度千帆大模型家族中的 ERNIE-Speed-128K。该模型以其高效、低延迟的特点，在保持较高准确性的同时，优化了计算资源的使用，非常适合部署在资源受限的环境中。
+- 后端框架：项目采用 **Node.js** 作为后端开发语言，得益于其非阻塞 I/O 模型，Node.js 在处理高并发请求时表现出色，非常适合构建实时交互系统。
+- Web 框架：**Express** 作为轻量级的 Node.js Web 应用框架，被用于快速搭建服务器路由和处理 HTTP 请求，简化了 Web 应用的开发流程。
+- AI 模型：核心部分使用了百度千帆大模型家族中的 **ERNIE-Speed-128K**。该模型以其高效、低延迟的特点，在保持较高准确性的同时，优化了计算资源的使用，非常适合部署在资源受限的环境中。
 
 ### 安装与启动
 
@@ -24,9 +24,52 @@ npm start
 
 ### 使用说明
 
-API 接口：服务器提供了一个简单的 RESTful API，允许用户通过 HTTP POST 请求发送文本生成请求。请求体应包含 prompt 字段，用于指定生成文本的起始文本或上下文。
-响应格式：服务器将返回 JSON 格式的响应，包含生成的文本内容以及可能的额外信息（如生成时间、模型版本等）。
+- API 接口：服务器提供了一个简单的 RESTful API，允许用户通过 HTTP POST 请求发送文本生成请求。请求体应包含 prompt 字段，用于指定生成文本的起始文本或上下文。
+
+- 示例请求：POST `http://localhost:3000/api/chat`
+
+- 请求参数：
+
+```json
+{
+  "prompt": "简要介绍下故宫"
+}
+```
+
+- 响应示例：
+
+```json
+{
+    "id": "as-9knp8hygi0",
+    "object": "chat.completion",
+    "created": 1729218442,
+    "sentence_id": 0,
+    "is_end": false,
+    "is_truncated": false,
+    "result": "故宫，",
+    "need_clear_history": false,
+    "usage": {
+        "prompt_tokens": 3,
+        "completion_tokens": 0,
+        "total_tokens": 3
+    }
+}{
+    "id": "as-9knp8hygi0",
+    "object": "chat.completion",
+    "created": 1729218443,
+    "sentence_id": 1,
+    "is_end": false,
+    "is_truncated": false,
+    "result": "位于中国北京市中心，是中国明清两代的皇家宫殿，也是现今的世界文化遗产和全国重点文物保护单位。",
+    "need_clear_history": false,
+    "usage": {
+        "prompt_tokens": 3,
+        "completion_tokens": 0,
+        "total_tokens": 3
+    }
+}
+```
 
 ### 版权信息
 
-版权所有 © 2024 hkgroup 保留所有权利。
+Copyright © 2024 hkgroup 保留所有权利。
