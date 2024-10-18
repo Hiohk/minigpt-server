@@ -36,4 +36,4 @@ jobs:
     - name: Wait for server to be ready
       run: |
         sleep 10  # 等待服务器启动
-        curl -f http://localhost:3000  # 替换为你的服务端口
+        curl -f http://10.34.57.89:3000  # 替换为你的服务端口
