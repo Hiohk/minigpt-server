@@ -20,14 +20,15 @@ const client = new ChatCompletion();
 
 router.post('/chat', async (req, res) => {
   try {
-    const { prompt } = req.body; // 从请求体中获取用户输入的 prompt
+    console.log('Received request:', req);
+    const { question } = req.body; // 从请求体中获取用户输入的 prompt
 
     // 调用文心一言 API
     const resp = await client.chat({
       messages: [
         {
           role: 'user',
-          content: prompt,
+          content: question,
         },
       ],
       stream: true,  // 启用流式返回
@@ -35,6 +36,7 @@ router.post('/chat', async (req, res) => {
 
     // 将流式数据发送给客户端
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+
     for await (const chunk of resp) {
       let dataToWrite;
       if (typeof chunk === 'object' && chunk !== null) {
