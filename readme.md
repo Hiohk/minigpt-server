@@ -32,7 +32,7 @@ npm start
 
 ```json
 {
-  "prompt": "简要介绍下故宫"
+  "question": "简要介绍下故宫"
 }
 ```
 
