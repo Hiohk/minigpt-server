@@ -20,7 +20,7 @@ const client = new ChatCompletion();
 
 router.post('/chat', async (req, res) => {
   try {
-    console.log('Received request:', req);
+    console.log('Received request:', req.body);
     const { question } = req.body; // 从请求体中获取用户输入的 prompt
 
     // 调用文心一言 API
