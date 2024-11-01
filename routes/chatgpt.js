@@ -48,7 +48,7 @@ router.post('/chat', async (req, res) => {
       }
 
       console.log('Received chunk:', dataToWrite);
-      res.write(dataToWrite);
+      res.write(dataToWrite + "\n");
     }
 
     res.end();
